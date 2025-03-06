@@ -9,3 +9,6 @@ const personalMovieDB = {
 	privat: false, 
 } 
 
+const theLastWatchedMovie = prompt("What was the last film that you watched?",""); 
+const theRateOftheLastWatchedMovie = prompt("How would you rate this film?",""); 
+
