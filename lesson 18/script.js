@@ -12,3 +12,8 @@ const personalMovieDB = {
 const theLastWatchedMovie = prompt("What was the last film that you watched?",""); 
 const theRateOftheLastWatchedMovie = prompt("How would you rate this film?",""); 
 
+personalMovieDB = { 
+	movies:{ 
+		theLastWatchedMovie: theRateOftheLastWatchedMovie, 
+	},
+ };
