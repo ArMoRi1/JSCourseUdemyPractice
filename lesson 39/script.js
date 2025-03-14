@@ -45,3 +45,14 @@ function createCounter() {
 const result = createCounter();
 console.log(result); // 1
 console.log(result); // 1 (counter завжди буде 1, оскільки createCounter виконується заново кожного разу)
+
+
+
+// for(let i=0;i<5;i++){
+// 	for(let j=0;j<5;j++){
+// 		let num = 3;
+// 	}
+
+
+// 	console.log(num);
+// }
