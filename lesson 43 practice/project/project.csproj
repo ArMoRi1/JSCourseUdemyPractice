@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{578D0099-DFCC-43B3-9307-ED0BC5265CC6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>project</RootNamespace>
+    <AssemblyName>project</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomers.Designer.cs">
+      <DependentUpon>AddCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGoods.Designer.cs">
+      <DependentUpon>AddGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInvoice.Designer.cs">
+      <DependentUpon>AddInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPeriod.Designer.cs">
+      <DependentUpon>AddPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSuppliers.Designer.cs">
+      <DependentUpon>AddSuppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatePeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatePeriod.Designer.cs">
+      <DependentUpon>DatePeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Goods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Goods.Designer.cs">
+      <DependentUpon>Goods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice.Designer.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Period.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Period.Designer.cs">
+      <DependentUpon>Period.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suppliers.Designer.cs">
+      <DependentUpon>Suppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TovarKlient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TovarKlient.Designer.cs">
+      <DependentUpon>TovarKlient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TovarPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TovarPeriod.Designer.cs">
+      <DependentUpon>TovarPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Database_2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Database_2DataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCustomers.resx">
+      <DependentUpon>AddCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGoods.resx">
+      <DependentUpon>AddGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddInvoice.resx">
+      <DependentUpon>AddInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPeriod.resx">
+      <DependentUpon>AddPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSuppliers.resx">
+      <DependentUpon>AddSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatePeriod.resx">
+      <DependentUpon>DatePeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Goods.resx">
+      <DependentUpon>Goods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice.resx">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Period.resx">
+      <DependentUpon>Period.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suppliers.resx">
+      <DependentUpon>Suppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TovarKlient.resx">
+      <DependentUpon>TovarKlient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TovarPeriod.resx">
+      <DependentUpon>TovarPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="_Database_2DataSet.xsc">
+      <DependentUpon>_Database_2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Database_2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Database_2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Database_2DataSet.xss">
+      <DependentUpon>_Database_2DataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106830.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1068301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-two-cartons-stacking-goods-commodity-png-image_367984.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-cardboard-box-relocation-product-miscellaneous-angle-rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3712174.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3126647.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-inventory-computer-icons-planning-vendor-others-miscellaneous-angle-freight-transport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_213833.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1554459.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\751463.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business-chart-diagram-icon-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\345-3458535_sort-01-sort-sorting-icon-sort-by-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-pie-chart-diagram-computer-icons-circle-graph-angle-text-orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-macos-app-icons-microsoft-excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1068302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database-2.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
