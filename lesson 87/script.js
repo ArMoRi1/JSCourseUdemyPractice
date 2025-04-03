@@ -36,24 +36,24 @@ const names = ['Artem', 'Ira', 'Bohdan', 'Oleksandr'];
 //     return sum + current;
 // },3);
 
-// const arr = ['apple', 'banana', 'cigarettes'];
+const arr = ['apple', 'banana', 'cigarettes'];
+
+const arrSum = arr.reduce((sum, current)=>{
+    return sum + " ," +current;
+});
+
+console.log(arrSum)
+
+
+// const object = {
+//     Artem : 'person',
+//     Ira : 'person',
+//     dog: 'animal',
+//     cat: 'animal',
+// };
 //
-// const arrSum = arr.reduce((sum, current)=>{
-//     return sum + " ," +current;
-// });
-
-// console.log(arrSum)
-
-
-const object = {
-    Artem : 'person',
-    Ira : 'person',
-    dog: 'animal',
-    cat: 'animal',
-};
-
-const matrix = Object.entries(object)
-    .filter( item => item[1] === 'person')
-    .map( item => item[0]);
-
-console.log(matrix);
+// const matrix = Object.entries(object)
+//     .filter( item => item[1] === 'person')
+//     .map( item => item[0]);
+//
+// console.log(matrix);
