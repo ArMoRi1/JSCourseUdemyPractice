@@ -21,15 +21,13 @@ const getPositiveIncomeAmount = (data) => {
 // console.log(getPositiveIncomeAmount(funds));
 const getTotalIncomeAmount = (data) => {
 	if(data.some(item => item.amount<0)){
-		const arr = data.map( item =>item.amount);
-		let sum = 0;
-		arr.forEach((item)=>{
-			sum+=item;
-		});
-		return sum;
+		return data.reduce((sum, item)=>{
+			return sum+=item.amount;
+		}, 0);
+
 	}else{
 		return getPositiveIncomeAmount(funds);
 	}
 };
 
-// console.log(getTotalIncomeAmount(funds));
+console.log(getTotalIncomeAmount(funds));
