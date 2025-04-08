@@ -169,5 +169,86 @@ function findFunc(cart){
     }, {totalPrice:0, totalItems:0, avgPrice:0});
 }
 
-console.log(findFunc(cart));
 // Очікуваний результат: {totalPrice: 2500, totalItems: 6, averagePrice: 416.67}
+
+
+//----------------------------------------------------
+
+
+const studentsGrades = [
+    {name: 'Anna', subjects: [{name: 'Math', grade: 75}, {name: 'English', grade: 82}, {name: 'Physics', grade: 58}]},
+    {name: 'Ivan', subjects: [{name: 'Math', grade: 64}, {name: 'English', grade: 55}, {name: 'Physics', grade: 70}]},
+    {name: 'Olga', subjects: [{name: 'Math', grade: 90}, {name: 'English', grade: 94}, {name: 'Physics', grade: 88}]},
+    {name: 'Max', subjects: [{name: 'Math', grade: 45}, {name: 'English', grade: 58}, {name: 'Physics', grade: 62}]}
+];
+
+//
+// function fourthTask(studentsGrades){
+//   return studentsGrades.reduce((acc, student)=>{
+//         let indGrades
+//
+//       // const totalMath  = student.subjects.reduce((sum, subject)=> sum += subject.grade.filter(item => item.name === 'Math'));
+//   // const totalEnglish
+//       // const totalPhysics
+//   });
+// }
+// console.log(fourthTask(studentsGrades));
+
+
+function thirdTask(studentsGrades){
+    return studentsGrades.reduce((acc, student) =>{
+       const total = student.subjects.reduce((sum, subject) =>sum+=subject.grade, 0);
+       const avg = Number(total / student.subjects.length).toFixed(2);
+        if (avg > acc.avg) {
+            return { name: student.name, avg: avg };
+        }
+       return acc;
+    }, {name:'', avg: 0});
+}
+
+
+// console.log(thirdTask(studentsGrades));
+
+
+function secondTask(studentsGrades){
+    return studentsGrades.reduce((acc, student)=>{
+        const total = student.subjects.reduce((sum, subject)=> sum += subject.grade, 0)
+        let avg;
+        avg = Number(total / student.subjects.length).toFixed(2);
+        acc.push({name: student.name, avg: avg})
+        return acc;
+    }, [])
+}
+
+console.log(secondTask(studentsGrades));
+function firstTask(students) {
+    return students.filter(student => student.subjects.every(subject => subject.grade >=60)).map(student => student.name);
+}
+// console.log(firstTask(studentsGrades));
+
+
+//---------------------------------------------------------------------
+// Напишіть функцію, яка аналізує банківські транзакції за певний період
+// і повертає детальну інформацію про доходи, витрати, баланс та категорії витрат
+
+// const transactions = [
+//     {id: 1, type: 'income', amount: 1000, category: 'salary', date: '2023-01-15'},
+//     {id: 2, type: 'expense', amount: 200, category: 'groceries', date: '2023-01-16'},
+//     {id: 3, type: 'expense', amount: 500, category: 'rent', date: '2023-01-20'},
+//     {id: 4, type: 'income', amount: 300, category: 'freelance', date: '2023-01-25'},
+//     {id: 5, type: 'expense', amount: 150, category: 'groceries', date: '2023-02-03'},
+//     {id: 6, type: 'expense', amount: 50, category: 'entertainment', date: '2023-02-10'}
+// ];
+//
+// function analyzeTransactions(transactions, startDate = null, endDate = null) {
+//     // Ваш код тут
+// }
+
+
+
+
+
+
+
+
+
