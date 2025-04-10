@@ -12,14 +12,26 @@
 
 const checkBox = document.querySelector('#checkbox'),
       form = document.querySelector('form'),
-      change = document.querySelector('#color');
+      change = document.querySelector('#color'),
+      confirmButton = document.querySelector('.confirmButton'),
+      body = document.querySelector('body');
 
 if(localStorage.getItem('isChecked')){
     checkBox.checked = true;
+    body.style.backgroundColor = 'pink';
 }
 
 checkBox.addEventListener('change', ()=>{
     localStorage.setItem('isChecked', true);
+    localStorage.setItem('bodyPink', 'pink')
+
+    if(checkBox.checked){
+        localStorage.removeItem('bodyPink');
+        body.style.backgroundColor = 'pink';
+    }else{
+        localStorage.setItem('bodyPink', 'pink');
+        body.style.backgroundColor = '#fff';
+    }
 });
 
 if(localStorage.getItem('bg') === 'changed'){
@@ -37,12 +49,58 @@ change.addEventListener('click', ()=>{
     }
 });
 
-const person = {
-    name: 'Ira',
-    age: 17,
-};
+if(localStorage.getItem('changeButtonBG') === 'changed'){
+    change.style.backgroundColor = 'green';
+}
 
-const serializedPerson = JSON.stringify(person);
-localStorage.setItem('Ira', serializedPerson);
+confirmButton.addEventListener('click', (e)=>{
+    e.preventDefault();
+   if(localStorage.getItem('changeButtonBG') === 'changed'){
+       localStorage.removeItem('changeButtonBG');
+       change.style.backgroundColor = 'blue';
+   }
+    else{
+      localStorage.setItem('changeButtonBG', 'changed');
+      change.style.backgroundColor = 'green';
+   }
+});
 
-console.log(JSON.parse(localStorage.getItem('Ira')));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const person = {
+//     name: 'Ira',
+//     age: 17,
+// };
+//
+// const serializedPerson = JSON.stringify(person);
+// localStorage.setItem('Ira', serializedPerson);
+//
+// console.log(JSON.parse(localStorage.getItem('Ira')));
