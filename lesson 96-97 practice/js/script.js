@@ -1,16 +1,16 @@
-window.addEventListener('DOMContentLoaded', () =>{
+window.addEventListener('DOMContentLoaded', () => {
 	//tabs
 	let tabs = document.querySelectorAll('.tabheader__item'),
 		tabsContent = document.querySelectorAll('.tabcontent'),
 		tabsParent = document.querySelector('.tabheader__items');
 
 	function hideTabs(){
-		tabsContent.forEach(item =>{
+		tabsContent.forEach(item => {
 			item.classList.add('hide','fade');
 			item.classList.remove('show');
 		});
 
-		tabs.forEach(item =>{
+		tabs.forEach(item => {
 			item.classList.remove("tabheader__item_active");
 		});
 	}
@@ -20,10 +20,10 @@ window.addEventListener('DOMContentLoaded', () =>{
 		tabs[i].classList.add("tabheader__item_active");
 	}
 
-	tabsParent.addEventListener('click', (event)=>{
+	tabsParent.addEventListener('click', (event) => {
 		const target = event.target;
 		if(target && target.classList.contains('tabheader__item')){
-			tabs.forEach((item, i)=>{
+			tabs.forEach((item, i) => {
 				if(target === item){
 					hideTabs();
 					showTab(i);
@@ -43,15 +43,15 @@ window.addEventListener('DOMContentLoaded', () =>{
 		let days, hours, minutes, seconds;
 		const t = Date.parse(endTime) - Date.parse(new Date());
 
-		if(t <=0){
+		if(t <= 0){
 			days = 0;
 			hours = 0;
 			minutes = 0;
 			seconds = 0;
-		}else{
+		} else {
 			days = Math.floor(t / (1000*60*60*24)),
-				hours =Math.floor((t / (1000*60*60) % 24)),
-				minutes =  Math.floor((t/1000/60) % 60),
+				hours = Math.floor((t / (1000*60*60) % 24)),
+				minutes = Math.floor((t/1000/60) % 60),
 				seconds = Math.floor((t/1000)%60);
 		}
 		return {
@@ -64,9 +64,9 @@ window.addEventListener('DOMContentLoaded', () =>{
 	}
 
 	function getZero(num){
-		if(num>=0 && num<10){
+		if(num >= 0 && num < 10){
 			return `0${num}`;
-		}else{
+		} else {
 			return num;
 		}
 	}
@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 			seconds.innerHTML = getZero(t.seconds);
 
 
-			if(t.total<=0){
+			if(t.total <= 0){
 				clearInterval(timeInterval);
 			}
 		}
@@ -117,25 +117,25 @@ window.addEventListener('DOMContentLoaded', () =>{
 		document.body.style.overflow = '';
 	}
 
-	modalTriggers.forEach((trigger)=>{
+	modalTriggers.forEach((trigger) => {
 		trigger.addEventListener('click', openModal);
 	});
 
 	// modalCloseBtn.addEventListener('click', modalClose);
 
-	modal.addEventListener('click', (e)=>{
-		if(e.target === modal || e.target.getAttribute('data-close')==''){
+	modal.addEventListener('click', (e) => {
+		if(e.target === modal || e.target.getAttribute('data-close') == ''){
 			modalClose();
 		}
 	});
 
-	document.addEventListener('keydown', (e)=>{
+	document.addEventListener('keydown', (e) => {
 		if(e.code === 'Escape' && modal.classList.contains('show')){
 			modalClose();
 		}
 	});
 
-	const modalTimerID = setTimeout( openModal, 50000);
+	const modalTimerID = setTimeout(openModal, 50000);
 
 	function showModalByScroll(){
 		if(window.pageYOffset + document.documentElement.clientHeight >=
@@ -190,8 +190,8 @@ window.addEventListener('DOMContentLoaded', () =>{
 		}
 	}
 
-	const getData = async (url)=>{
-		const res = await  fetch(url);
+	const getData = async (url) => {
+		const res = await fetch(url);
 
 		if(!res.ok){
 			throw new Error(`could not fetch ${url}, status: ${res.status}`);
@@ -201,7 +201,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 	};
 
 	axios.get('http://localhost:3000/menu')
-		.then(data => data.data.forEach(({menuImg, menuAlt, menuName, menuText, menuPrice,})=>{
+		.then(data => data.data.forEach(({menuImg, menuAlt, menuName, menuText, menuPrice,}) => {
 			new Menu(menuImg, menuAlt, menuName, menuText, menuPrice, '.menu .container',).render();
 		}));
 
@@ -239,12 +239,12 @@ window.addEventListener('DOMContentLoaded', () =>{
 		success: 'Дякую. Ваше повідомлення прийнято!',
 		fail: 'Сук, шота нє то:(',
 	}
-	forms.forEach(item =>{
+	forms.forEach(item => {
 		bindPostData(item);
 	});
 
-	const postData = async (url, data)=>{
-		const res = await  fetch(url, {
+	const postData = async (url, data) => {
+		const res = await fetch(url, {
 			method: "POST",
 			headers: {
 				'Content-type' : 'application/json',
@@ -256,7 +256,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 		return await res.json();
 	};
 	function bindPostData(form){
-		form.addEventListener('submit', (e)=>{
+		form.addEventListener('submit', (e) => {
 			e.preventDefault();
 
 			let statusMessage = document.createElement('img');
@@ -284,7 +284,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 					statusMessage.remove();
 				}).catch(() => {
 				showThanksModal(messages.fail);
-			}).finally(()=>{
+			}).finally(() => {
 				form.reset();
 			});
 		});
@@ -310,7 +310,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 			`;
 		document.querySelector('.modal').append(thanksModal);
 
-		setTimeout(()=>{
+		setTimeout(() => {
 			thanksModal.remove();
 			prevModalDialog.classList.add('show');
 			prevModalDialog.classList.remove('hide');
@@ -352,7 +352,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 
 	slidesWrapper.style.overflow = 'hidden';
 
-	slides.forEach((slide)=>{
+	slides.forEach((slide) => {
 		slide.style.width = width + '%';
 	});
 
@@ -361,7 +361,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 	const indicators = document.createElement('ol'),
 		dots = [];
 	indicators.classList.add('carousel-indicators');
-	indicators.classList.cssText = `
+	indicators.style.cssText = `
 		    position: absolute;
 			right: 0;
 			bottom: 0;
@@ -404,7 +404,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 		return +str.replace(/\D/g, '');
 	}
 
-	next.addEventListener('click', ()=>{
+	next.addEventListener('click', () => {
 		if(offset == deleteNotDigits(width) * (slides.length - 1)){
 			offset = 0;
 		}else{
@@ -424,11 +424,11 @@ window.addEventListener('DOMContentLoaded', () =>{
 			current.textContent = slideIndex;
 		}
 
-		dots.forEach( dot => dot.style.opacity = '.5');
+		dots.forEach(dot => dot.style.opacity = '.5');
 		dots[slideIndex-1].style.opacity = 1;
 	});
 
-	prev.addEventListener('click', ()=>{
+	prev.addEventListener('click', () => {
 		if(offset == 0){
 			offset = deleteNotDigits(width) * (slides.length - 1)
 		}else{
@@ -448,12 +448,12 @@ window.addEventListener('DOMContentLoaded', () =>{
 			current.textContent = slideIndex;
 		}
 
-		dots.forEach( dot => dot.style.opacity = '.5');
+		dots.forEach(dot => dot.style.opacity = '.5');
 		dots[slideIndex-1].style.opacity = 1;
 	});
 
-	dots.forEach(dot =>{
-		dot.addEventListener('click', (e)=>{
+	dots.forEach(dot => {
+		dot.addEventListener('click', (e) => {
 			const slideTo = e.target.getAttribute('data-slide-to');
 
 			slideIndex = slideTo;
@@ -468,7 +468,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 				current.textContent = slideIndex;
 			}
 
-			dots.forEach( dot => dot.style.opacity = '.5');
+			dots.forEach(dot => dot.style.opacity = '.5');
 			dots[slideIndex-1].style.opacity = 1;
 		});
 	});
@@ -518,18 +518,19 @@ window.addEventListener('DOMContentLoaded', () =>{
 	// Calories calculator
 
 	const result = document.querySelector(".calculating__result span");
-	let sex = 'female', height, weight, age, ratio = 1.375;
+	let sex, height, weight, age, ratio;
 
+	// Initialize values from localStorage or set defaults
 	if(localStorage.getItem('sex')){
 		sex = localStorage.getItem('sex');
-	}else{
+	} else {
 		sex = 'female';
 		localStorage.setItem('sex', 'female');
 	}
 
 	if(localStorage.getItem('ratio')){
 		ratio = localStorage.getItem('ratio');
-	}else{
+	} else {
 		ratio = 1.375;
 		localStorage.setItem('ratio', 1.375);
 	}
@@ -541,7 +542,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 		}
 		if(sex === 'female'){
 			result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);
-		}else{
+		} else {
 			result.textContent = Math.round((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);
 		}
 	}
@@ -549,7 +550,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 	function initiateLocalSettings(selector, activeClass){
 		const elements = document.querySelectorAll(selector);
 
-		elements.forEach(element =>{
+		elements.forEach(element => {
 			element.classList.remove(activeClass);
 
 			if(element.getAttribute('id') === localStorage.getItem('sex')){
@@ -561,30 +562,24 @@ window.addEventListener('DOMContentLoaded', () =>{
 			}
 		});
 	}
+
 	initiateLocalSettings('#gender div', 'calculating__choose-item_active');
 	initiateLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
-
-
-
-	Calculating();
 
 	function getStaticInfo(selector, activeClass){
 		const elements = document.querySelectorAll(selector);
 
-		elements.forEach(elem =>{
-			elem.addEventListener('click', (e)=>{
+		elements.forEach(elem => {
+			elem.addEventListener('click', (e) => {
 				if(e.target.getAttribute('data-ratio')){
 					ratio = +e.target.getAttribute('data-ratio');
 					localStorage.setItem('ratio', ratio);
-
-				}else{
+				} else {
 					sex = e.target.getAttribute('id');
 					localStorage.setItem('sex', sex);
 				}
 
-				// console.log(ratio, sex);
-
-				elements.forEach(elem =>{
+				elements.forEach(elem => {
 					elem.classList.remove(activeClass);
 				});
 
@@ -600,52 +595,50 @@ window.addEventListener('DOMContentLoaded', () =>{
 	function getDynamicInfo(selector){
 		const input = document.querySelector(selector);
 
-		input.addEventListener('input', ()=>{
+		// Set initial value from localStorage if it exists
+		if (localStorage.getItem(input.id)) {
+			input.value = localStorage.getItem(input.id);
 
-			const input = document.querySelector(selector);
+			// Update the corresponding variable
+			switch(input.id) {
+				case 'height':
+					height = +input.value;
+					break;
+				case 'weight':
+					weight = +input.value;
+					break;
+				case 'age':
+					age = +input.value;
+					break;
+			}
+		}
 
-			// Підставляємо значення з localStorage, якщо воно є
-			if (localStorage.getItem(input.id)) {
-				input.value = localStorage.getItem(input.id);
-				switch(input.id){
-					case 'height':
-						height = +input.value;
-						break;
-					case 'weight':
-						weight = +input.value;
-						break;
-					case 'age':
-						age = +input.value;
-						break;
-				}
+		// Add input event listener
+		input.addEventListener('input', () => {
+			if (input.value.match(/\D/g)) {
+				input.style.border = '1px solid red';
+			} else {
+				input.style.border = '';
 			}
 
-			input.addEventListener('input', () => {
-				if (input.value.match(/\D/g)) {
-					input.style.border = '1px solid red';
-				} else {
-					input.style.border = '';
-				}
+			const val = +input.value;
 
-				const val = +input.value;
+			switch(input.id) {
+				case 'height':
+					height = val;
+					break;
+				case 'weight':
+					weight = val;
+					break;
+				case 'age':
+					age = val;
+					break;
+			}
 
-				switch (input.id) {
-					case 'height':
-						height = val;
-						break;
-					case 'weight':
-						weight = val;
-						break;
-					case 'age':
-						age = val;
-						break;
-				}
+			// Save to localStorage
+			localStorage.setItem(input.id, input.value);
 
-				// Зберігаємо в localStorage
-				localStorage.setItem(input.id, input.value);
-
-				Calculating();
-			});
+			Calculating();
 		});
 	}
 
@@ -653,12 +646,6 @@ window.addEventListener('DOMContentLoaded', () =>{
 	getDynamicInfo('#weight');
 	getDynamicInfo('#age');
 
-
+	// Run initial calculation
+	Calculating();
 });
-
-
-
-
-
-
-
