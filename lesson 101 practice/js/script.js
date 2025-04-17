@@ -8,7 +8,7 @@ const tabs = require('./modules/tabs'),
 	slider = require('./modules/slider');
 
 tabs();
-modals();
+modals('[data-modal]', '.modal');
 timer();
 cards();
 calculator();
