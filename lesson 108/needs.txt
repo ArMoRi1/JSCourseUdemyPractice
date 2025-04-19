@@ -1,0 +1,21 @@
+Angular (framework):
+
+- node.js
+- TypeScript
+- webpack
+- MVC pattern
+- Angular documentation
+
+React (library):
+
+- node.js
+- JSX
+- Babel
+- WebPack
+- React
+
+Vue.JS (Framework):
+
+- node.js
+- WebPack
+- Vue.JS
