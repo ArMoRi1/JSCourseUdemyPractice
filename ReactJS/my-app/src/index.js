@@ -2,16 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const text = 'buga-buga';
+const elem = (
+    <div>
+        <h2>text : {text} {2+2}</h2>
+        {/*<h2>date : {new Date()}</h2>*/}
+        <input className="inputClass" tabIndex={1} type="text" />
+        <label htmlFor=""></label>
+        <button tabIndex={2}>button</button>
+    </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    elem,
+    // document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
