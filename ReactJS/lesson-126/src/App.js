@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import {Component, Fragment} from 'react';
 import './App.css';
 
 class WhoAmI extends Component{
@@ -9,7 +9,6 @@ class WhoAmI extends Component{
             text: '+++',
             position: '',
         }
-        // this.nextYear = this.nextYear.bind(this);
     }
     nextYear = () =>{
         this.setState(state =>({
@@ -17,12 +16,7 @@ class WhoAmI extends Component{
             text: state.text + "+",
         }));
     }
-    // nextYear(){
-    //     this.setState(state =>({
-    //         years: state.years + 1,
-    //         text: state.text + "+",
-    //     }));
-    // }
+
     commitInputChanges = (e)=>{
         // console.log(e.target.value);
         this.setState({
@@ -34,7 +28,7 @@ class WhoAmI extends Component{
         const {name, surname, link} = this.props;
         const {position, text, years} = this.state;
         return (
-            <div>
+            <>
                 <button onClick={this.nextYear}>{text}</button>
                 <h1>My name is {name}, surname - {surname}, age - {years}, position - {position} </h1>
                 <a href={link}>My profile</a>
@@ -42,17 +36,17 @@ class WhoAmI extends Component{
                     <span>Type position:</span>
                     <input type="text" onChange={this.commitInputChanges}/>
                 </form>
-            </div>
+            </>
         );
     }
 }
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
         <WhoAmI name={'Art'} surname="MOchalov" link="facebook.com"/>
         <WhoAmI name={'Ira'} surname="GEyna" link="facebook.com"/>
-    </div>
+    </Fragment>
   );
 }
 
