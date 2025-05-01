@@ -18,8 +18,8 @@ class EmployeesAddForm extends Component{
     }
     onSubmit = (e) =>{
         e.preventDefault();
-        if(this.state.name.length > 1 && !this.state.salary){
-            return;
+        if(this.state.name.length < 2 || !this.state.salary){
+           return;
         }
 
         this.props.onAdd(this.state.name, this.state.salary);
@@ -30,7 +30,7 @@ class EmployeesAddForm extends Component{
         });
     }
     render(){
-        const {name, salary} = this.props;
+        const {name, salary} = this.state;
        return(
            <div className="app-add-form">
                <h3>Add new employee</h3>
