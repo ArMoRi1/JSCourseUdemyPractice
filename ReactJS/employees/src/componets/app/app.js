@@ -14,11 +14,12 @@ class App extends Component{
         super(props);
         this.state = {
             data: [
-                {name: 'Art M.', salary: 800, increase: false, like: false, id: 1},
+                {name: 'Art M.', salary: 800, increase: true, like: false, id: 1},
                 {name: 'Ira H.', salary: 2000, increase: false, like: true, id: 2},
                 {name: 'Nig A.', salary: 1500, increase: false, like: false, id: 3},
             ],
             term: '',
+            filter: 'all',
         }
     }
     deleteItem = (id) =>{
@@ -68,11 +69,27 @@ class App extends Component{
         this.setState({term});
     }
 
+    filterEmployees = (items, filter) =>{
+        switch(filter) {
+            case 'like': // для підвищення (increase == true)
+                return items.filter(item => item.like);
+            case 'moreThan1000': // зарплата > 1000
+                return items.filter(item => item.salary > 1000);
+            default: // всі співробітники
+                return items;
+        }
+    }
+    onFilterSelect = (filter) =>{
+        this.setState({filter});
+    }
+
     render(){
-        const {data, term} = this.state;
+        const {data, term, filter} = this.state;
         const employees = this.state.data.length;
         const employeesLike = this.state.data.filter(item=>item.increase).length;
-        const visibleData = this.searchEmp(data, term);
+        const visibleData = this.filterEmployees(this.searchEmp(data, term), filter);
+
+
         return (
             <div className="app">
                 <AppInfo
@@ -84,7 +101,10 @@ class App extends Component{
                     <SearchPanel
                         onUpdateSearch={this.onUpdateSearch}
                     />
-                    <AppFilter/>
+                    <AppFilter
+                        filter={filter}
+                        onFilterSelect={this.onFilterSelect}
+                    />
                 </div>
 
                 <EmployeesList
