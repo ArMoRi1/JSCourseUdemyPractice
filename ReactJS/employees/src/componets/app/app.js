@@ -43,6 +43,11 @@ class App extends Component{
             data: [...data, newItem]
         }));
     }
+    onSalaryChange = (id, newSalary) =>{
+        this.setState(({data})=>({
+            data:data.map(item => item.id === id ? { ...item, salary: parseFloat(newSalary) || 0 } : item)
+        }));
+    }
 
     onToggleProp = (id, prop) =>{
         this.setState(({data})=>({
@@ -55,7 +60,6 @@ class App extends Component{
         }));
 
     }
-
     searchEmp = (items, term) =>{
         if(term === 0){
             return items;
@@ -68,7 +72,6 @@ class App extends Component{
     onUpdateSearch = (term) =>{
         this.setState({term});
     }
-
     filterEmployees = (items, filter) =>{
         switch(filter) {
             case 'like': // для підвищення (increase == true)
@@ -111,7 +114,7 @@ class App extends Component{
                     data={visibleData}
                     onDelete={this.deleteItem}
                     onToggleProp={this.onToggleProp}
-
+                    onSalaryChange={this.onSalaryChange}
                 />
                 <EmployeesAddForm
                     onAdd={this.addItem}
