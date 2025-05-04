@@ -1,4 +1,4 @@
-import {Component, Fragment} from 'react';
+import {Component} from 'react';
 import styled from "styled-components";
 
 import './App.css';
@@ -58,7 +58,7 @@ class WhoAmI extends Component{
         const {name, surname, link} = this.props;
         const {position, text, years} = this.state;
         return (
-            <EmpItem active>
+            <EmpItem active="true">
                 <Button onClick={this.nextYear}>{text}</Button>
                 <Header>My name is {name}, surname - {surname}, age - {years}, position - {position} </Header>
                 <a href={link}>My profile</a>
