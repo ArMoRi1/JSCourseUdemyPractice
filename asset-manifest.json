@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Employees-accounting/static/css/main.804827a7.css",
+    "main.js": "/Employees-accounting/static/js/main.ce841a33.js",
+    "index.html": "/Employees-accounting/index.html",
+    "main.804827a7.css.map": "/Employees-accounting/static/css/main.804827a7.css.map",
+    "main.ce841a33.js.map": "/Employees-accounting/static/js/main.ce841a33.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.804827a7.css",
+    "static/js/main.ce841a33.js"
+  ]
+}
