@@ -1,58 +1,35 @@
 import React from 'react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { legacy_createStore as createStore } from 'redux';
+import { legacy_createStore as createStore, bindActionCreators } from 'redux';
 import './index.css'
+import reducer from "./reducer";
+import * as actions from './actions'
 
-const initialState = {value: 0};
-
-const reducer = (state = initialState , action) => {
-    switch(action.type){
-        case "INC":
-            return {
-                ...state,
-                value: state.value + 1,
-            };
-        case "DEC":
-            return {
-                ...state,
-                value: state.value - 1,
-            };
-        case "RND":
-            return {
-                ...state,
-                value: state.value * action.payload,
-            };
-
-        default:
-            return state;
-    }
-}
 const store = createStore(reducer);
 
 const update = () => {
-    document.getElementById('counter').textContent = store.getState().value;
+    document.getElementById('counter').textContent = getState().value;
 }
 
-store.subscribe(update);
+const {dispatch} = store;
+const {subscribe} = store;
+const {getState} = store;
 
-const inc = () => ({type : "INC"});
-const dec = () => ({type : "DEC"});
-const rnd = (value) => ({type : "RND", payload: value});
+subscribe(update);
 
+// const bindActionCreator = (creator, dispatch) =>(...args)=>{
+//     dispatch(creator(...args));
+// }
 
+const {inc, dec, rnd} = bindActionCreators( actions, dispatch);
 
+document.getElementById('inc').addEventListener('click', inc);
 
-document.getElementById('inc').addEventListener('click', ()=>{
-    store.dispatch(inc());
-});
-
-document.getElementById('dec').addEventListener('click', ()=>{
-    store.dispatch(dec());
-});
+document.getElementById('dec').addEventListener('click', dec);
 document.getElementById('rnd').addEventListener('click', ()=>{
     const value = Math.floor(Math.random() * 10);
-    store.dispatch(rnd(value));
+    rnd(value);
 });
 
 
