@@ -13,18 +13,43 @@
       "element": "fire"
     },
     {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
+      "id": "9cf99606-ba5f-4b61-9e35-0a0822d769aa",
+      "name": "123",
+      "description": "12",
       "element": "water"
+    },
+    {
+      "id": "652c45ae-9ea4-46e4-a9f1-59d1d7d9acb0",
+      "name": "Artem",
+      "description": "123",
+      "element": "fire"
     }
-
   ],
   "filters": [
-    "all",
-    "fire",
-    "water",
-    "wind",
-    "earth"
+    {
+      "name": "all",
+      "label": "Все",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "label": "Огонь",
+      "className": "btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "Вода",
+      "className": "btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "Ветер",
+      "className": "btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "Земля",
+      "className": "btn-secondary"
+    }
   ]
 }
